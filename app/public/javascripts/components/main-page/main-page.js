@@ -1,3 +1,4 @@
+import MainPageRegistration from './__registration/__registration';
 var React = require('react');
 var ReactDOM = require('react-dom');
 
@@ -12,6 +13,7 @@ let MainRouter = <Router history={browserHistory}>
         <Route path="about"/>
         <Route path="services"/>
         <Route path="contact"/>
+        <Route path="registrate" component={MainPageRegistration}/>
     </Route>
 </Router>;
 

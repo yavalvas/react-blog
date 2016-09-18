@@ -5,7 +5,7 @@ var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var reactify = require('reactify');
-// var babel = require('babelify');
+var babel = require('babelify');
 var buffer = require('vinyl-buffer');
 
 gulp.task('default', function () {
@@ -14,13 +14,18 @@ gulp.task('default', function () {
             './app/public/javascripts/components/main-page/main-page.js'
             // './app/public/javascripts/components/navbar/navbar.js'
         ],
-        transform: [reactify],
+        // transform: [reactify],
         extensions: ['.js', '.jsx'],
         debug: true,
         cache: {},
         packageCache: {},
         fullPaths: true
-    }).transform("babelify", {presets: ["es2015"]}));
+    }).transform(babel.configure({presets: ["es2015", "react"],
+        plugins: [
+            "transform-es2015-modules-commonjs",
+            "transform-react-jsx",
+            "transform-es2015-arrow-functions"
+    ]})));
 
     function build(file) {
         if (file) gutil.log('Recompiling ' + file);

@@ -5,8 +5,15 @@ var router = express.Router();
 // router.get('/', function (req, res, next) {
 //     res.render('index', {title: 'Express'});
 // });
+var routesToRedirect = [
+    '/',
+    '/about',
+    '/services',
+    '/contact',
+    '/registration'
+];
 
-router.get('*', (request, response) => {
+router.get(routesToRedirect, (request, response) => {
     response.render('index', {title: 'Express'});
 });
 
