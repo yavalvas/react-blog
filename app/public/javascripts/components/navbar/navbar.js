@@ -12,7 +12,4 @@ var Navbar = React.createClass({
     }
 });
 
-ReactDOM.render(
-    <Navbar />,
-    document.getElementById('navbar')
-);
+module.exports = Navbar;
