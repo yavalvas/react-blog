@@ -10,7 +10,7 @@ var routesToRedirect = [
     '/about',
     '/services',
     '/contact',
-    '/registration'
+    '/registrate'
 ];
 
 router.get(routesToRedirect, (request, response) => {

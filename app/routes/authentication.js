@@ -1,11 +1,11 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var router = express.Router();
-var UserSchema = require('app/mongoose/schema/userinfo');
+var UserSchema = require('../mongoose/schema/userinfo');
 
 /* User's registration */
 router.post('/signup', function (req, res, next) {
-    var {firstname, lastname, email, password} = req.body;
+    let {firstname, lastname, email, password} = req.body;
     var RegUser = mongoose.model('RegUser', UserSchema);
     RegUser.create({firstname, lastname, email, password}, (err, newUser) => {
         if(err) return next(err);
@@ -13,7 +13,6 @@ router.post('/signup', function (req, res, next) {
         return res.json({status: "SUCCESS", message: "User was successfully signed up"});
     });
 });
-
 
 router.post('/login', function (req, res, next) {
     var {email, password} = req.body;

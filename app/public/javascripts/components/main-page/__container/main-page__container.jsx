@@ -5,6 +5,8 @@ var BlogSidebarColumn = require("../__blog-sidebar-column/main-page__blog-sideba
 var Navbar = require("../../navbar/navbar");
 
 var MainContainer = React.createClass({
+    
+
     render: function () {
         const p_ = this.props;
         return (<div>

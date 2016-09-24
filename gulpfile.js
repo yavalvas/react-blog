@@ -7,6 +7,15 @@ var watchify = require('watchify');
 var reactify = require('reactify');
 var babel = require('babelify');
 var buffer = require('vinyl-buffer');
+var sass = require('gulp-sass');
+//
+// gulp.task('sass', function() {
+//     return gulp.src('./sass/**/*.scss')
+//         .pipe(sass.sync().on('error', sass.logError))
+//         .pipe(gulp.dest('./app/public/stylesheets'));
+// });
+
+
 
 gulp.task('default', function () {
     var bundler = watchify(browserify({
